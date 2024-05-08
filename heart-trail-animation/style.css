@@ -1,6 +1,23 @@
+/*
+This CSS file with a simple animation that moves a `<span>` element from its initial position to a different position while fading it out. The `@keyframes` rule defines the animation behavior, and the `.animate` animation is applied to the `<span>` element.
+
+Here's a breakdown of what each part of CSS does:
+
+1. The `body` rule sets some basic styles for the entire document, such as removing margins and padding and setting the background color to black.
+
+2. The `span` rule styles a `<span>` element. It sets a background image, dimensions, disables pointer events, and positions it absolutely in the center of its containing element using `left: 50%`, `top: 50%`, and `transform: translate(-50%, -50%)`.
+
+3. The `@keyframes animate` rule defines the animation behavior. It starts with the element in its original position and fully opaque (opacity: 1) at 0% of the animation duration, and then moves it upward by 5000% of its height while simultaneously fading it out (opacity: 0) at 100% of the animation duration.
+
+Overall, this CSS file creates a simple animation where an element moves upwards and fades out over a duration of 6 seconds.
+*/
+
 body {
     margin: 0;
+    padding: 0;
     height: 100vh;
+    width: 100vw;
+    overflow: hidden;
     background-color: black;
 }
 
@@ -8,9 +25,22 @@ span {
     background: url("https://cdn4.iconfinder.com/data/icons/general-office/91/General_Office_54-256.png");
     width: 100px;
     height: 100px;
+    pointer-events: none;
     position: absolute;
     background-size: cover;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    animation: animate 6s linear;
+}
+
+@keyframes animate {
+    0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -5000%);
+        opacity: 0;
+    }
 }
